@@ -1,17 +1,17 @@
 all: build
 
-build: clean yaf.o
-	ld -o yaf yaf.o
+build: clean unforthunate.o
+	ld -o unforthunate unforthunate.o
 
-yaf.o: yaf.asm
-	nasm -f elf64 -g -F dwarf yaf.asm -o yaf.o
+unforthunate.o: unforthunate.asm
+	nasm -f elf64 -g -F dwarf unforthunate.asm -o unforthunate.o
 
 clean:
 	rm -f *.o
-	rm -f yaf
+	rm -f unforthunate
 
 run: build
-	./yaf
+	./unforthunate
 
 test_third_part: build
-	./yaf < third_part_script.yaf
+	./unforthunate < third_part_script.unforthunate
